@@ -8,13 +8,7 @@ const footerLinks = [
     href: "/sobre-mi",
     external: false,
   },
-  {
-    title: "Hablamos",
-    description: "Si crees que puedo ayudarte, escr\u00edbeme.",
-    href: "mailto:cristinaalcalazamora@gmail.com",
-    external: true,
-  },
-  {
+{
     title: "LinkedIn",
     description: "Mi perfil y mi actividad profesional.",
     href: "https://www.linkedin.com/in/cristina-alcal%C3%A1-zamora-borreguero/",
@@ -29,7 +23,7 @@ export function Footer() {
 
       {/* CTA columns */}
       <div
-        className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-10"
         style={{ fontFamily: "var(--font-inter)" }}
       >
         {footerLinks.map((link) => {
