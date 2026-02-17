@@ -1,14 +1,7 @@
 import Link from "next/link";
 import type { Post } from "@/lib/posts";
 import { formatDate } from "@/lib/utils";
-import { SketchCircle } from "./Gota";
-
-const categoryDoodles: Record<string, string> = {
-  marketing: "~",
-  ia: "*",
-  reflexiones: ".",
-  aprendizajes: "+",
-};
+import { CategoryIllustration } from "./Gota";
 
 export function PostCard({ post }: { post: Post }) {
   return (
@@ -16,9 +9,12 @@ export function PostCard({ post }: { post: Post }) {
       href={`/blog/${post.slug}`}
       className="group flex items-start gap-4 py-5 border-b border-border/60 hover:border-foreground/20 transition-colors"
     >
-      {/* Doodle indicator */}
-      <div className="mt-2 flex-shrink-0">
-        <SketchCircle className="w-3 h-3 text-foreground opacity-20 group-hover:opacity-50 transition-opacity" />
+      {/* Category illustration */}
+      <div className="mt-1 flex-shrink-0">
+        <CategoryIllustration
+          category={post.category}
+          className="w-7 h-7 text-foreground opacity-20 group-hover:opacity-50 transition-opacity"
+        />
       </div>
 
       <div className="flex-1 min-w-0">

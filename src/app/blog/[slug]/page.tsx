@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { formatDate } from "@/lib/utils";
 import { MDXContent } from "@/components/MDXContent";
-import { SketchLine, SketchArrow } from "@/components/Gota";
+import { SketchLine, SketchArrow, CategoryIllustration } from "@/components/Gota";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -36,23 +36,32 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
+  const sectionHref = post.section === "a-tierra" ? "/gotas-a-tierra" : "/gotas-al-aire";
+  const sectionLabel = post.section === "a-tierra" ? "gotas a tierra" : "gotas al aire";
+
   return (
     <article>
       <Link
-        href="/blog"
+        href={sectionHref}
         className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors mb-10 group"
         style={{ fontFamily: "var(--font-inter)" }}
       >
         <SketchArrow className="w-5 h-3 rotate-180 text-muted group-hover:text-foreground transition-colors" />
-        todas las gotas
+        {sectionLabel}
       </Link>
 
       <header className="mb-12">
-        <div
-          className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted mb-4"
-          style={{ fontFamily: "var(--font-inter)" }}
-        >
-          <span>{post.category}</span>
+        <div className="flex items-center gap-3 mb-4">
+          <CategoryIllustration
+            category={post.category}
+            className="w-8 h-8 text-foreground opacity-40"
+          />
+          <span
+            className="text-xs uppercase tracking-[0.15em] text-muted"
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            {post.category}
+          </span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-medium tracking-tight leading-snug mb-5">
           {post.title}
@@ -74,9 +83,7 @@ export default async function PostPage({ params }: Props) {
 
       <footer className="mt-16 pt-6">
         <SketchLine className="w-full h-2 text-foreground mb-6" />
-        <p
-          className="text-sm text-muted italic"
-        >
+        <p className="text-sm text-muted italic">
           Otra gota m&aacute;s en el vaso. Gracias por leer.
         </p>
       </footer>

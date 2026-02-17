@@ -141,5 +141,156 @@ export function SketchUnderline({ className = "" }: { className?: string }) {
   );
 }
 
-// Keep old name as alias for backward compat during transition
+// --- Category illustrations ---
+
+export function SketchReflexiones({ className = "" }: { className?: string }) {
+  // Cuaderno abierto con bolígrafo
+  return (
+    <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
+      {/* Cuaderno abierto */}
+      <path
+        d="M5 8 C5 7, 6 6, 7 6 L19 6 C19.5 6, 20 6.5, 20 7 L20 34 C20 34, 19 33, 17 33 L7 33 C6 33, 5 32, 5 31 Z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M35 8 C35 7, 34 6, 33 6 L21 6 C20.5 6, 20 6.5, 20 7 L20 34 C20 34, 21 33, 23 33 L33 33 C34 33, 35 32, 35 31 Z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Líneas de texto */}
+      <path d="M8 12 L17 12" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.3" />
+      <path d="M8 16 L15 16" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.3" />
+      <path d="M8 20 L16 20" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.3" />
+      <path d="M23 12 L32 12" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.3" />
+      <path d="M23 16 L30 16" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.3" />
+      {/* Bolígrafo */}
+      <path
+        d="M28 20 L33 35 L34 35 L30 21"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function SketchIA({ className = "" }: { className?: string }) {
+  // Cerebro con chispa/circuito
+  return (
+    <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
+      {/* Cerebro - lado izquierdo */}
+      <path
+        d="M20 10 C17 7, 12 7, 10 10 C7 10, 6 13, 7 16 C5 18, 6 22, 8 23 C7 26, 9 29, 12 29 C13 32, 17 33, 20 30"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Cerebro - lado derecho */}
+      <path
+        d="M20 10 C23 7, 28 7, 30 10 C33 10, 34 13, 33 16 C35 18, 34 22, 32 23 C33 26, 31 29, 28 29 C27 32, 23 33, 20 30"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Línea central */}
+      <path d="M20 10 L20 30" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.3" />
+      {/* Chispas */}
+      <path d="M10 5 L11 3 L12 6" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <path d="M30 4 L31 2 L32 5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+      {/* Puntitos de circuito */}
+      <circle cx="14" cy="17" r="1" fill="currentColor" opacity="0.3" />
+      <circle cx="26" cy="17" r="1" fill="currentColor" opacity="0.3" />
+      <circle cx="20" cy="20" r="1" fill="currentColor" opacity="0.4" />
+    </svg>
+  );
+}
+
+export function SketchMarketing({ className = "" }: { className?: string }) {
+  // Megáfono con ondas
+  return (
+    <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
+      {/* Megáfono */}
+      <path
+        d="M6 18 L6 24 C6 25, 7 25, 8 25 L12 25 L22 32 L22 10 L12 17 L8 17 C7 17, 6 17, 6 18 Z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Asa pequeña abajo */}
+      <path
+        d="M10 25 L10 29 C10 30, 11 31, 12 31 L14 31 C15 31, 15 30, 15 29 L15 25"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Ondas de sonido */}
+      <path d="M26 17 C28 19, 28 23, 26 25" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <path d="M30 14 C33 18, 33 24, 30 28" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.35" />
+      <path d="M34 11 C38 17, 38 25, 34 31" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.2" />
+    </svg>
+  );
+}
+
+export function SketchGuia({ className = "" }: { className?: string }) {
+  // Brújula dibujada
+  return (
+    <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
+      {/* Círculo exterior */}
+      <path
+        d="M20 3 C28 2.5, 37 11, 37 20 C37.5 28, 29 37, 20 37 C12 37.5, 3 29, 3 20 C2.5 12, 11 3, 20 3 Z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Marcas cardinales */}
+      <path d="M20 6 L20 9" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <path d="M20 31 L20 34" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <path d="M6 20 L9 20" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <path d="M31 20 L34 20" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      {/* Aguja - rombo */}
+      <path
+        d="M20 10 L24 20 L20 30 L16 20 Z"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      {/* Mitad superior rellena */}
+      <path
+        d="M20 10 L24 20 L16 20 Z"
+        fill="currentColor"
+        opacity="0.15"
+      />
+      {/* Centro */}
+      <circle cx="20" cy="20" r="2" stroke="currentColor" strokeWidth="1" fill="none" />
+    </svg>
+  );
+}
+
+// Map category to illustration component
+export function CategoryIllustration({ category, className = "" }: { category: string; className?: string }) {
+  switch (category) {
+    case "reflexiones":
+      return <SketchReflexiones className={className} />;
+    case "ia":
+      return <SketchIA className={className} />;
+    case "marketing":
+      return <SketchMarketing className={className} />;
+    default:
+      return <SketchGuia className={className} />;
+  }
+}
+
+// Keep old name as alias
 export const Gota = SketchGota;
