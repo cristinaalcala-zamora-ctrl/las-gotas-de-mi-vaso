@@ -1,65 +1,112 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getPostsBySection } from "@/lib/posts";
+import { PostCard } from "@/components/PostCard";
+import { SketchVaso, SketchLine, SketchArrow } from "@/components/Gota";
 
 export default function Home() {
+  const alAire = getPostsBySection("al-aire").slice(0, 3);
+  const aTierra = getPostsBySection("a-tierra").slice(0, 3);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div>
+      {/* Hero */}
+      <section className="pb-20">
+        <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-12">
+          <SketchVaso className="w-20 h-24 text-foreground opacity-70 flex-shrink-0" />
+          <div>
+            <h1 className="text-3xl sm:text-4xl font-medium tracking-tight leading-snug mb-2">
+              Las gotas de mi vaso
+            </h1>
+            <p className="text-sm text-muted mb-6" style={{ fontFamily: "var(--font-inter)" }}>
+              por Cristina Alcal&aacute;-Zamora
+            </p>
+            <div className="text-base leading-relaxed text-muted space-y-3" style={{ fontFamily: "var(--font-inter)" }}>
+              <p>
+                Siempre hablamos de la gota que colm&oacute; el vaso como algo
+                negativo. Pero un vaso tambi&eacute;n se llena de cosas buenas,
+                gota a gota. Cada experiencia, cada idea, cada reflexi&oacute;n
+                &mdash; todo mueve el nivel del agua.
+              </p>
+              <p>
+                Esto es mi vaso. Y si alguna de mis gotas mueve un poco el
+                nivel del tuyo, te la dejo. Es tuya.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gotas al aire */}
+      {alAire.length > 0 && (
+        <section className="mb-16">
+          <div className="flex items-center gap-3 mb-2">
+            <h2
+              className="text-xs uppercase tracking-[0.2em] text-muted"
+              style={{ fontFamily: "var(--font-inter)" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              gotas al aire
+            </h2>
+            <SketchLine className="flex-1 h-2 text-foreground" />
+          </div>
+          <p
+            className="text-xs text-muted mb-6"
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            reflexiones, ideas sueltas, lo que flota
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div>
+            {alAire.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
+          <div className="mt-6 flex items-center gap-2">
+            <Link
+              href="/gotas-al-aire"
+              className="text-sm text-muted hover:text-foreground transition-colors"
+              style={{ fontFamily: "var(--font-inter)" }}
+            >
+              todas las gotas al aire
+            </Link>
+            <SketchArrow className="w-6 h-3 text-muted" />
+          </div>
+        </section>
+      )}
+
+      {/* Gotas a tierra */}
+      {aTierra.length > 0 && (
+        <section>
+          <div className="flex items-center gap-3 mb-2">
+            <h2
+              className="text-xs uppercase tracking-[0.2em] text-muted"
+              style={{ fontFamily: "var(--font-inter)" }}
+            >
+              gotas a tierra
+            </h2>
+            <SketchLine className="flex-1 h-2 text-foreground" />
+          </div>
+          <p
+            className="text-xs text-muted mb-6"
+            style={{ fontFamily: "var(--font-inter)" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+            gu&iacute;as, recursos, lo pr&aacute;ctico
+          </p>
+          <div>
+            {aTierra.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
+          <div className="mt-6 flex items-center gap-2">
+            <Link
+              href="/gotas-a-tierra"
+              className="text-sm text-muted hover:text-foreground transition-colors"
+              style={{ fontFamily: "var(--font-inter)" }}
+            >
+              todas las gotas a tierra
+            </Link>
+            <SketchArrow className="w-6 h-3 text-muted" />
+          </div>
+        </section>
+      )}
     </div>
   );
 }
